@@ -103,5 +103,4 @@ public class AvaliadorTest {
         Assert.assertEquals(0, leiloeiro.getMenorDeTodos(), 0.0001);
         Assert.assertEquals(0, leiloeiro.getMenorDeTodos(), 0.0001);
     }
-
 }
