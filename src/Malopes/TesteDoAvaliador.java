@@ -6,6 +6,10 @@ import Malopes.Leilao;
 import Malopes.Usuario;
 import org.junit.Test;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 class TesteDoAvaliador {
     @Test
     public static void main(String[] args) {
@@ -19,10 +23,13 @@ class TesteDoAvaliador {
         leilao.propoe(new Lance(joao,300.0));
         leilao.propoe(new Lance(jose,400.0));
 
+
+        leilao.propoe(new Lance(joao, 100.0));
+        leilao.propoe(new Lance(maria, 200.0));
+        leilao.propoe(new Lance(joao, 300.0));
+        leilao.propoe(new Lance(maria, 400.0));
+
         Avaliador leiloeiro = new Avaliador();
         leiloeiro.avalia(leilao);
-
-        System.out.println(leiloeiro.getMaiorLance());
-        System.out.println(leiloeiro.getMenorDeTodos());
     }
 }
