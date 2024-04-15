@@ -9,9 +9,37 @@ public class Leilao {
     public Leilao(String produto) {
         this.produto = produto;
     }
+
     public void propoe(Lance lance) {
-        this.lances.add(lance);
+        if (lances.isEmpty()
+
+                || podeDarLance(lance.getUsuario())) {
+            lances.add(lance);
+        }
     }
+
+    private boolean podeDarLance(Usuario usuario) {
+        return !ultimoLanceDado().getUsuario().equals(usuario)
+                && qtdDelancesDo(usuario) < 5;
+
+    }
+
+    private Lance ultimoLanceDado() {
+        return lances.get(lances.size() - 1);
+    }
+
+    private int qtdDelancesDo(Usuario usuario) {
+        int total = 0;
+        for (Lance lance : lances) {
+            if (lance.getUsuario().equals(usuario))
+                total++;
+
+        }
+        return total;
+    }
+
+
+
     public List<Lance> getLances() {
         if(lances == null){
             lances = new ArrayList<Lance>();
