@@ -38,8 +38,6 @@ public class Leilao {
         return total;
     }
 
-
-
     public List<Lance> getLances() {
         if(lances == null){
             lances = new ArrayList<Lance>();
