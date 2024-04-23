@@ -1,7 +1,11 @@
 package Malopes;
 
+import java.util.Calendar;
+
 public class CriadorDeLeilao {
+
     private Leilao leilao;
+
     public CriadorDeLeilao() {
 
     }
@@ -14,6 +18,11 @@ public class CriadorDeLeilao {
         return this;
     }
     public Leilao constroi() {
-        return leilao;
+        return this.leilao;
+    }
+
+    public CriadorDeLeilao naData(Calendar antiga) {
+        leilao.setData(antiga);
+        return this;
     }
 }

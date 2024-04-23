@@ -1,14 +1,55 @@
 package Malopes;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Leilao {
     private String produto;
+
+    private Calendar data = Calendar.getInstance();
+
     private List<Lance> lances = new ArrayList<>();
+
+    public enum Status{
+        OPEN,
+        CLOSED;
+    }
+    private Status status = Status.OPEN;
+
     public Leilao(String produto) {
         this.produto = produto;
     }
+
+
+    public void encerra() {
+        if (lances.isEmpty()) {
+            throw new RuntimeException("Não é possível encerrar um leilão sem lances");
+        }
+        setStatus(Status.CLOSED);
+    }
+
+    public boolean isEncerrado() {
+        return getStatus() == Status.CLOSED;
+    }
+
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Calendar getData() {
+        return this.data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
+
 
     public void propoe(Lance lance) {
         if (lances.isEmpty()
